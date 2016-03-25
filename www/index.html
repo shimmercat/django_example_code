@@ -1,0 +1,53 @@
+    <!doctype html>
+    <html>
+        <head>
+            <title>Django - Angular - ShimmerCat</title>
+            <script data-main="js/start" src="js/require.min.js"></script>
+            <style>
+              #button1 {
+                  background-color: blue;
+                  padding: 5px;
+                  color: orange;
+                  cursor: pointer;
+                  border-width: 1px;
+                  width: 100px;
+              }
+              input {
+                  padding: 5px;
+                  margin-bottom: 15px;
+                  color: orange;
+              }
+              .error {
+                  border-color: red;
+                  border-top-style: solid;
+                  border-left-style: solid;
+                  border-width: 1px;
+              }
+              form {
+                  margin: 5px;
+              }
+              li {
+                  color: orange;
+              }
+            </style>
+        </head>
+        <body>
+            <div>
+              <div ng-controller="mainController">
+                <h3>Person:</h3>
+                  <form name="personForm">
+                      <input type="text" name="personName" required ng-model="person.name" placeholder="Enter a name here" ng-class="{error:personForm.personName.$error.required}">
+                      <button id="button1" ng-disabled="personForm.personName.$invalid" ng-click="add_person(person.name);">Add person</button>
+                  </form>
+
+                <div>
+                    <hr>
+                    <h1>Persons</h1>
+                    <ul>
+                        <li ng-repeat="person in persons">{{ person.name }}</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+        </body>
+    </html>

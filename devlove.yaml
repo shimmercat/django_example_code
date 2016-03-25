@@ -1,0 +1,7 @@
+---
+shimmercat-devlove:
+    domains:
+          www.httpdos.com:
+            root-dir: www
+          api.httpdos.com:
+            port: 8080
