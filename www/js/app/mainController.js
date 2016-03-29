@@ -3,9 +3,9 @@
         angular.module('myApp', [])
           .controller('mainController', ['$scope', '$http', function ($scope, $http) {
               $scope.add_person = function(name) {
-                    $http.get(
+                    $http.post(
                         'https://api.httpdos.com/api/person/',
-                        {params: {'name': name}}
+                        {'name': name}
                     ).then(function(response) {
                         $scope.persons = response.data;
                     });

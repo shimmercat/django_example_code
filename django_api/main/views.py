@@ -7,6 +7,6 @@ from .serializers import PersonSerializer
 
 class PersonViewSet(APIView):
 
-    def get(self, request):
-        Person.objects.create(name=request.GET['name'])
+    def post(self, request):
+        Person.objects.create(name=request.data['name'])
         return Response(PersonSerializer(Person.objects.all(), many=True).data)
